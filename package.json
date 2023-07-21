@@ -2,6 +2,19 @@
   "name": "vue2-ppvr",
   "version": "0.0.1",
 
+  "description": "Vue.js 2+ popover component. Forked from https://github.com/euvl/vue-js-popover",
+  "author": "semivori",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/semivori/vue2-ppvr"
+  },
+  "bugs": {
+    "url": "https://github.com/semivori/vue2-ppvr/issues"
+  },
+  "keywords": ["vue", "dropdown", "tooltip", "popover", "menu", "button"],
+
+
   "type": "module",
   "files": ["dist"],
   "main": "./dist/vue2-ppvr.umd.cjs",
