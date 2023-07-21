@@ -1,0 +1,32 @@
+{
+  "name": "vue2-ppvr",
+  "version": "0.0.1",
+
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/vue2-ppvr.umd.cjs",
+  "module": "./dist/vue2-ppvr.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue2-ppvr.js",
+      "require": "./dist/vue2-ppvr.umd.cjs"
+    }
+  },
+
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "sass": "^1.64.0",
+    "vue": "^2.7.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^2.0.0",
+    "@vitejs/plugin-vue2": "^1.1.2",
+    "@vitejs/plugin-vue2-jsx": "^1.0.2",
+    "terser": "^5.14.2",
+    "vite": "^3.0.2"
+  }
+}
