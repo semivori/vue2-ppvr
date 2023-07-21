@@ -10,7 +10,7 @@ export default defineConfig({
     build: {
         lib: {
             // Could also be a dictionary or array of multiple entry points
-            entry: resolve(__dirname, 'lib/index.js'),
+            entry: [resolve(__dirname, 'lib/index.js')],
             name: 'vue2-ppvr',
             // the proper extensions will be added
             fileName: 'vue2-ppvr',
