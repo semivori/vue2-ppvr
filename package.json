@@ -1,6 +1,6 @@
 {
   "name": "vue2-ppvr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue.js 2+ popover component. Forked from https://github.com/euvl/vue-js-popover",
   "author": "semivori",
   "license": "MIT",
