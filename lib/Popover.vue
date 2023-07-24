@@ -82,6 +82,10 @@ export default {
       position: {
         left: 0,
         top: 0
+      },
+      pointerPosition: {
+        left: null,
+        top: null
       }
     }
   },
@@ -117,6 +121,19 @@ export default {
         styles.position = 'fixed'
       }
 
+      if (
+          this.pointerPosition.left !== null
+          && this.pointerPosition.left !== undefined
+      ) {
+        styles['--pp-left'] = this.pointerPosition.left.toString() + 'px'
+      }
+      if (
+          this.pointerPosition.top !== null
+          && this.pointerPosition.top !== undefined
+      ) {
+        styles['--pp-top'] = this.pointerPosition.top.toString() + 'px'
+      }
+
       return styles
     }
   },
@@ -146,6 +163,18 @@ export default {
             this.position = {
               left: `${position.left}px`,
               top: `${position.top}px`
+            }
+
+            const trRect = event.target.getBoundingClientRect()
+
+            if (['top', 'bottom'].includes(event.position)) {
+              this.pointerPosition = {
+                left: Math.round(trRect.width / 2),
+              }
+            } else if (['left', 'right'].includes(event.position)) {
+              this.pointerPosition = {
+                top: Math.round(trRect.height / 2),
+              }
             }
           })
         })
@@ -267,7 +296,7 @@ $pointer-size: 6px;
     border-right: $pointer-size solid transparent;
     border-bottom: $pointer-size solid #fff;
     top: -$pointer-size;
-    left: calc(50% - #{$pointer-size});
+    left: var(--pp-left);
     filter: drop-shadow(0px -2px 2px rgba(52, 73, 94, 0.1));
   }
 
@@ -276,7 +305,7 @@ $pointer-size: 6px;
     border-right: $pointer-size solid transparent;
     border-top: $pointer-size solid #fff;
     bottom: -$pointer-size;
-    left: calc(50% - #{$pointer-size});
+    left: var(--pp-left);
     filter: drop-shadow(0px 2px 2px rgba(52, 73, 94, 0.1));
   }
 
