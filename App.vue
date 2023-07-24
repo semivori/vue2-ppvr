@@ -1,10 +1,18 @@
 <template>
   <div id="app" class="app">
-    <button v-popover:foo style="position: fixed; top: 100px">00000</button>
+    <div class="d-flex justify-content-between p-5" style="background-color: antiquewhite">
+      <div>
+        <button class="btn btn-info" v-popover:p1.right>00000</button>
+        <button class="btn btn-info" v-popover:p2.bottom>00000</button>
+      </div>
+      <div>
+        <button class="btn btn-info" v-popover:p3.left>00000</button>
+        <button class="btn btn-info" v-popover:p4.top>00000</button>
+      </div>
+    </div>
 
-    <popover name="foo">
-      Hello
-    </popover>
+
+    <popover v-for="n in 4" :name="`p${n}`">Hello {{n}}</popover>
   </div>
 </template>
 
@@ -13,7 +21,8 @@
 export default {
   name: 'app',
   data() {
-    return {}
+    return {
+    }
   },
 }
 </script>

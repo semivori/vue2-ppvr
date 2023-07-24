@@ -161,19 +161,19 @@ export default {
             let position = this.getDropdownPosition(event)
 
             this.position = {
-              left: `${position.left}px`,
-              top: `${position.top}px`
+              left: `${position.dropdown.left}px`,
+              top: `${position.dropdown.top}px`
             }
 
             const trRect = event.target.getBoundingClientRect()
 
             if (['top', 'bottom'].includes(event.position)) {
               this.pointerPosition = {
-                left: Math.round(trRect.width / 2),
+                left: position.pointer.left,
               }
             } else if (['left', 'right'].includes(event.position)) {
               this.pointerPosition = {
-                top: Math.round(trRect.height / 2),
+                top: position.pointer.top,
               }
             }
           })
@@ -259,9 +259,19 @@ export default {
         left = clientWidth - ddRect.width - 2
       }
 
+      console.log(
+          offsetLeft + trRect.width / 2
+      )
+
       return {
-        left: Math.round(left),
-        top: Math.round(centerY - y)
+        dropdown: {
+          left: Math.round(left),
+          top: Math.round(centerY - y)
+        },
+        pointer: {
+          left: Math.round(offsetLeft + trRect.width / 2 - left - pointerSize),
+          top: Math.round(centerY)
+        }
       }
     }
   }
